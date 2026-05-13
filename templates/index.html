@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>News Analyzer</title>
+
+<style>
+body {
+    background:#0f172a;
+    color:white;
+    font-family:Segoe UI;
+}
+
+/* NAVBAR */
+.nav {
+    padding:15px;
+    background:#020617;
+}
+
+.nav a {
+    color:#38bdf8;
+    margin-right:15px;
+    text-decoration:none;
+}
+
+/* INPUT BOX */
+.container {
+    width:80%;
+    margin:auto;
+    margin-top:30px;
+}
+
+input {
+    width:70%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+}
+
+button {
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+}
+
+/* CARDS */
+.card {
+    background:#1e293b;
+    padding:15px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+img {
+    width:100%;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✅ ALWAYS VISIBLE NAVBAR -->
+<div class="nav">
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+
+<h1>🧠 Fake News Detector</h1>
+
+<!-- ✅ SEARCH FORM ALWAYS VISIBLE -->
+<form method="POST">
+    <input name="news" placeholder="Enter news..." required>
+    <button>Analyze</button>
+</form>
+
+<!-- ✅ RESULT -->
+{% if prediction %}
+<div class="card">
+    <h2>Result: {{ prediction }}</h2>
+    <p>Confidence: {{ confidence }}%</p>
+
+    <p><b>Important Words:</b></p>
+    <ul>
+    {% for word in explanation %}
+        <li>{{ word }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<!-- ✅ NEWS -->
+<h2>📰 Related News</h2>
+
+{% for article in articles %}
+<div class="card">
+    <img src="{{ article.image or 'https://via.placeholder.com/300' }}">
+    <h3>{{ article.title }}</h3>
+    <p>{{ article.description }}</p>
+    <a href="{{ article.link }}" target="_blank">Read More</a>
+</div>
+{% endfor %}
+
+</div>
+
+</body>
+</html>

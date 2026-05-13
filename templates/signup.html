@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Segoe UI;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.box {
+    background:rgba(255,255,255,0.05);
+    padding:40px;
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    animation:fade 1s ease;
+}
+
+input {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:none;
+}
+
+button {
+    width:100%;
+    padding:12px;
+    background:#38bdf8;
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#0ea5e9;
+}
+
+@keyframes fade {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+<h2>Create Account</h2>
+
+<form method="POST">
+<input name="username" placeholder="Username" required>
+<input type="password" name="password" placeholder="Password" required>
+<button>Signup</button>
+</form>
+
+<p>Already have account? <a href="/login">Login</a></p>
+</div>
+
+</body>
+</html>
