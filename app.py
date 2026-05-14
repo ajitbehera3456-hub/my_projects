@@ -11,7 +11,7 @@ app.secret_key = "secret123"
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
-API_KEY = "ba9af162908053cbe1a5b686ee95a2b5"
+API_KEY = "YOUR_API_KEY"
 
 # DATABASE
 def init_db():
